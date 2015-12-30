@@ -32,7 +32,7 @@ class WelcomeController extends Controller {
 	{
 		$dir = '/var/lib/openshift/56843b142d5271dd4900010b/app-root/repo/music';
 
-		$getID3 = new \getID3;
+		$getID3 = new \james-heinrich\getID3;
 		$DirectoryToScan = $dir;
 		$dir = opendir($DirectoryToScan);
 		$cnt = 1;
