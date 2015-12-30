@@ -30,6 +30,7 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
+		$getID3 = new \getID3;
 		return view('welcome');
 	}
 
