@@ -30,8 +30,27 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
+		$dir = '/var/lib/openshift/56843b142d5271dd4900010b/app-root/repo/music';
+
 		$getID3 = new \getID3;
-		return view('welcome');
+		$DirectoryToScan = $dir;
+		$dir = opendir($DirectoryToScan);
+		$cnt = 1;
+		$musicArray = $music = array();
+
+		while (($file = readdir($dir)) !== false) {
+        		$FullFileName = realpath($DirectoryToScan.'/'.$file);
+    			if ((substr($FullFileName, 0, 1) != '.') && is_file($FullFileName)) {
+
+			        $ThisFileInfo = $getID3->analyze($FullFileName);
+        			getid3_lib::CopyTagsToComments($ThisFileInfo);
+        			$values = explode(":", $ThisFileInfo['playtime_string']);
+        			$musicArray['music-' . $file] = 
+					((($values[0] * 60) + $values[1] ) * 1000) - 1000;
+				$music[] = $ThisFileInfo;
+			}
+		}
+		return view('welcome', ['music' => $music, 'musicArray'=>$musicArray]);
 	}
 
 }

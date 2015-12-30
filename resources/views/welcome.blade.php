@@ -40,8 +40,11 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Laravel 5</div>
-				<div class="quote">{{ Inspiring::quote() }}</div>
+				<div class="title">Welcome My Love Valorie</div>
+				<div class="quote">{{ Inspiring::quote() }}</div>				<div style="display:none;">
+{{ dump(music) }}
+{{ dump(musicArray) }}
+</div>
 			</div>
 		</div>
 	</body>
