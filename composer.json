@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "5.0.*",
+
 		"james-heinrich/getid3":"*"
 	},
 	"require-dev": {
