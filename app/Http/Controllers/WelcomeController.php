@@ -43,9 +43,9 @@ class WelcomeController extends Controller {
     			if ((substr($FullFileName, 0, 1) != '.') && is_file($FullFileName)) {
 
 			        $ThisFileInfo = $getID3->analyze($FullFileName);
-        			getid3_lib::CopyTagsToComments($ThisFileInfo);
+        			\getid3_lib::CopyTagsToComments($ThisFileInfo);
         			$values = explode(":", $ThisFileInfo['playtime_string']);
-        			$musicArray['music-' . $file] = 
+        			$musicArray['music-' . $file] =
 					((($values[0] * 60) + $values[1] ) * 1000) - 1000;
 				$music[] = $ThisFileInfo;
 			}
