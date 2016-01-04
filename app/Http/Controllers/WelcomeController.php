@@ -30,7 +30,7 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		$dir = '/var/lib/openshift/56843b142d5271dd4900010b/app-root/repo/music';
+		$dir = '/var/lib/openshift/56843b142d5271dd4900010b/app-root/repo/public/music/';
 
 		$getID3 = new \getID3;
 		$DirectoryToScan = $dir;
