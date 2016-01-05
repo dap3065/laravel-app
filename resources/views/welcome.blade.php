@@ -90,15 +90,15 @@ Track Number
 </div>
 </div>
 @for ($i = 0; $i < count($music); $i++)
-  <div class="col-md-12" style="cursor:pointer;" onclick="playFile('music/{{ $music[$i]["filename"] }}', '{{ $music[$i]["comments"]["title"][0] }}', '{{ $music[$i]["comments"]["artist"][0] }}', '{{ $music[$i]["comments"]["album"][0] }}');">
+  <div class="col-md-12" style="cursor:pointer;" onclick="playFile('music/{{ $music[$i]["filename"] }}');">
 
-<div class="col-md-4">
+<div class="col-md-4" id="title{{ $music[$i]["filename"] }}">
 {{ $music[$i]["comments"]["title"][0] }}
 </div>
-<div class="col-md-3">
+<div class="col-md-3" id="artist{{ $music[$i]["filename"] }}">
 {{ $music[$i]["comments"]["artist"][0] }}
 </div>
-<div class="col-md-3">
+<div class="col-md-3" id="album{{ $music[$i]["filename"] }}">
 {{ $music[$i]["comments"]["album"][0] }}
 </div>
 <div class="col-md-1">
@@ -128,6 +128,9 @@ Track Number
             } else {
                 var key = obj.src;
             }
+	    var title = $("#title"+key).html();
+	    var artist = $("#artist"+key).html();
+	    var album = $("#album"+key).html();
             console.log(key);
             key = key.replace(new RegExp("\\.|-","g"),"");
             key = key.replace(new RegExp("\\/","g"),"");
@@ -142,6 +145,7 @@ Track Number
                 timer = setTimeout(nextSong, mymusic[key]);
                 console.log(timer + " timer");
             }
+	    $('#nowPlaying').html("<legend>Now Playing</legend>"+title+"<br/>"+artist+"<br/>"+album);
 
         }
         function stopSong() {
@@ -151,7 +155,7 @@ Track Number
                clearTimeout(timer);
 
         }
-        function playFile(fileName, title, artist, album) {
+        function playFile(fileName) {
                                     var obj = document.getElementById('pluginPlayer');
                                    obj.pause();
              $('#pluginPlayer source').each(function() {
@@ -163,8 +167,6 @@ Track Number
                     playSong();
                 }
             });
-	    $('#nowPlaying').html("<legend>Now Playing</legend>"+title+"<br/>"+artist+"<br/>"+album);
-
         }
         function nextSong() {
                                    var obj = document.getElementById('pluginPlayer');
