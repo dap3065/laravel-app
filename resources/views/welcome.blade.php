@@ -59,10 +59,28 @@ Now Playing
 </fieldset>
 </div>
 <div style="padding:10px;margin:10px;">
-                        <button style="background-color:black;" onclick="playSong()">Play</button> <button class="button" style="background-color:black;" onclick="stopSong();">Stop</button> <button class="button" style="background-color:black;"  onclick="nextSong()">Next</button> <button style="background-color:black;"  class="button" onclick="previousSong()">Previous</button>
+<button  onclick="playSong()">Play</button> 
+<button class="button"  onclick="stopSong();">Stop</button> 
+<button class="button" onclick="nextSong()">Next</button> 
+<button class="button" onclick="previousSong()">Previous</button>
                         </div>
 <div style="padding:10px;margin:10px;">
-{{ dump($music) }}
+<table>
+<thead>
+<tr><td>Title</td><td>Artist</td><td>Album</td><td>Year</td><td>Track Number</td></tr>
+</thead>
+<tbody>
+@for ($i = 0; $i < count($music); $i++)
+  <tr style="cursor:pointer;" onclick="playFile('music/{{ $music[$i]["filename"] }}');">
+	<td>{{ $music[$i]["comments_html"]["title"][0] }}<td>
+	<td>{{ $music[$i]["comments_html"]["artist"][0] }}<td>
+	<td>{{ $music[$i]["comments_html"]["album"][0] }}<td>
+	<td>{{ $music[$i]["comments_html"]["year"][0] }}<td>
+	<td>{{ $music[$i]["comments_html"]["track_number"][0] }}<td>
+  </tr>
+@endfor
+</tbody>
+</table>
 </div>
 			</div>
 		</div>
