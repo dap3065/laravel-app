@@ -73,23 +73,42 @@ Now Playing
 <button class="button" onclick="previousSong()">Previous</button>
                         </div>
 <div style="padding:10px;margin:10px;">
-<table>
-<thead>
-<tr><td>Title</td><td>Artist</td><td>Album</td><td>Year</td><td>Track Number</td></tr>
-</thead>
-<tbody>
-@for ($i = 0; $i < count($music); $i++)
-  <tr style="cursor:pointer;" onclick="playFile('music/{{ $music[$i]["filename"] }}');">
-	<td>{{ $music[$i]["comments_html"]["title"][0] }}<td>
-	<td>{{ $music[$i]["comments_html"]["artist"][0] }}<td>
-	<td>{{ $music[$i]["comments_html"]["album"][0] }}<td>
-	<td>{{{ isset($music[$i]["comments_html"]["year"]) ? $music[$i]["comments_html"]["year"][0] : '' }}}<td>
-	<td>{{{ isset($music[$i]["comments_html"]["track_number"]) ? $music[$i]["comments_html"]["track_number"][0] : '' }}}<td>
-  </tr>
-@endfor
-</tbody>
-</table>
+<div class="col-md-4">
+Title
 </div>
+<div class="col-md-3">
+Artist
+</div>
+<div class="col-md-3">
+Album
+</div>
+<div class="col-md-1">
+Year
+</div>
+<div class="col-md-1">
+Track Number
+</div>
+</div>
+@for ($i = 0; $i < count($music); $i++)
+  <div class="col-md-12" style="cursor:pointer;" onclick="playFile('music/{{ $music[$i]["filename"] }}');">
+
+<div class="col-md-4">
+{{ $music[$i]["comments"]["title"][0] }}
+</div>
+<div class="col-md-3">
+{{ $music[$i]["comments"]["artist"][0] }}
+</div>
+<div class="col-md-3">
+{{ $music[$i]["comments"]["album"][0] }}
+</div>
+<div class="col-md-1">
+{{{ isset($music[$i]["comments"]["year"]) ? $music[$i]["comments"]["year"][0] : '' }}}
+</div>
+<div class="col-md-1">
+{{{ isset($music[$i]["comments"]["track_number"]) ? $music[$i]["comments"]["track_number"][0] : '' }}}
+</div>
+</div>
+@endfor
 			</div>
 		</div>
 <script type="text/javascript">
