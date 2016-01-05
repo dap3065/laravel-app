@@ -83,8 +83,8 @@ Now Playing
 	<td>{{ $music[$i]["comments_html"]["title"][0] }}<td>
 	<td>{{ $music[$i]["comments_html"]["artist"][0] }}<td>
 	<td>{{ $music[$i]["comments_html"]["album"][0] }}<td>
-	<td>{{ $music[$i]["comments_html"]["year"][0] }}<td>
-	<td>{{ $music[$i]["comments_html"]["track_number"][0] }}<td>
+	<td>{{{ isset($music[$i]["comments_html"]["year"]) ? $music[$i]["comments_html"]["year"][0] : '' }}}<td>
+	<td>{{{ isset($music[$i]["comments_html"]["track_number"]) ? $music[$i]["comments_html"]["track_number"][0] : '' }}}<td>
   </tr>
 @endfor
 </tbody>
