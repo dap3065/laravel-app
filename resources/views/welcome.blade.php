@@ -128,9 +128,11 @@ Track Number
             } else {
                 var key = obj.src;
             }
-	    var title = $("#title"+key).html();
-	    var artist = $("#artist"+key).html();
-	    var album = $("#album"+key).html();
+	    var parts = key.split("/");
+	    console.log(parts);
+	    var title = $("#title"+parts[1]).html();
+	    var artist = $("#artist"+parts[1]).html();
+	    var album = $("#album"+parts[1]).html();
             console.log(key);
             key = key.replace(new RegExp("\\.|-","g"),"");
             key = key.replace(new RegExp("\\/","g"),"");
