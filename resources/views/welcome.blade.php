@@ -3,6 +3,14 @@
 		<title>I Love Valorie</title>
 		
 		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+                <link href='require.css' rel='stylesheet' type='text/css'>
+                <link href='bootstrap/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+                <script type="text/javascript" src="require.js" >
+                </script>
+                <script type="text/javascript" src="jquery/jquery.min.js" >
+                </script>
+                <script type="text/javascript" src="bootstrap/js/bootstrap.min.js" >
+                </script>
 
 		<style>
 			body {
@@ -86,6 +94,7 @@ Now Playing
 		</div>
 <script type="text/javascript">
  var mymusic = [];
+ var timer;
 @foreach ($musicArray as $key => $value)
     mymusic['{!! str_replace(array("-", ".", "&", "(", ")"), "", $key) !!}'] = {{$value}}; 
 @endforeach
