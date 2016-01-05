@@ -40,7 +40,7 @@
 	<body onload="playSong();">
 		<div class="container">
 			<div class="content">
-				<div class="title">Welcome My Love Valorie</div>
+				<div class="title">Welcome My Love</div>
 				<div class="quote">{{ Inspiring::quote() }}</div>				<div >
 @for ($i = 0; $i < count($music); $i++)
   @if($i==0)
@@ -51,12 +51,25 @@
   Your browser does not support the audio element.
 </audio>
 </div>
+<div style="padding:10px;margin:10px;">
+<fieldset>
+<legend>
+Now Playing
+</legend>
+</fieldset>
+</div>
+<div style="padding:10px;margin:10px;">
+                        <button style="background-color:black;" onclick="playSong()">Play</button> <button class="button" style="background-color:black;" onclick="stopSong();">Stop</button> <button class="button" style="background-color:black;"  onclick="nextSong()">Next</button> <button style="background-color:black;"  class="button" onclick="previousSong()">Previous</button>
+                        </div>
+<div style="padding:10px;margin:10px;">
+{{ dump($music) }}
+</div>
 			</div>
 		</div>
 <script type="text/javascript">
  var mymusic = [];
 @foreach ($musicArray as $key => $value)
-    mymusic['{{!! str_replace(array("-", ".", "&", "(", ")"), "", $key) !!}}'] = {{$value}}; 
+    mymusic['{!! str_replace(array("-", ".", "&", "(", ")"), "", $key) !!}'] = {{$value}}; 
 @endforeach
 
        function playSong() {
