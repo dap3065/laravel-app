@@ -60,7 +60,7 @@
 </audio>
 </div>
 <div style="padding:10px;margin:10px;">
-<fieldset>
+<fieldset id="nowPlaying">
 <legend>
 Now Playing
 </legend>
@@ -90,7 +90,7 @@ Track Number
 </div>
 </div>
 @for ($i = 0; $i < count($music); $i++)
-  <div class="col-md-12" style="cursor:pointer;" onclick="playFile('music/{{ $music[$i]["filename"] }}');">
+  <div class="col-md-12" style="cursor:pointer;" onclick="playFile('music/{{ $music[$i]["filename"] }}', '{{ $music[$i]["comments"]["title"][0] }}', '{{ $music[$i]["comments"]["artist"][0] }}', '{{ $music[$i]["comments"]["album"][0] }}');">
 
 <div class="col-md-4">
 {{ $music[$i]["comments"]["title"][0] }}
@@ -151,7 +151,7 @@ Track Number
                clearTimeout(timer);
 
         }
-        function playFile(fileName) {
+        function playFile(fileName, title, artist, album) {
                                     var obj = document.getElementById('pluginPlayer');
                                    obj.pause();
              $('#pluginPlayer source').each(function() {
@@ -163,6 +163,7 @@ Track Number
                     playSong();
                 }
             });
+	    $('#nowPlaying').html("<legend>Now Playing</legend>"+title+"<br/>"+artist+"<br/>"+album);
 
         }
         function nextSong() {
