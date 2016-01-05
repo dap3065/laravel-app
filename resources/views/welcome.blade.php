@@ -92,13 +92,13 @@ Track Number
 @for ($i = 0; $i < count($music); $i++)
   <div class="col-md-12" style="cursor:pointer;" onclick="playFile('music/{{ $music[$i]["filename"] }}');">
 
-<div class="col-md-4" id="title{{ $music[$i]["filename"] }}">
+<div class="col-md-4" id="title{{ $i }}">
 {{ $music[$i]["comments"]["title"][0] }}
 </div>
-<div class="col-md-3" id="artist{{ $music[$i]["filename"] }}">
+<div class="col-md-3" id="artist{{ $i }}">
 {{ $music[$i]["comments"]["artist"][0] }}
 </div>
-<div class="col-md-3" id="album{{ $music[$i]["filename"] }}">
+<div class="col-md-3" id="album{{ $i }}">
 {{ $music[$i]["comments"]["album"][0] }}
 </div>
 <div class="col-md-1">
@@ -130,12 +130,12 @@ Track Number
             }
 	    var parts = key.split("/");
 	    console.log(parts);
-	    var tag = "#title"+parts[1];
+	    var tag = findSong(parts[1]);
 	    console.log(tag);
-	    console.log($(tag));
-	    var title = $(tag).html();
-	    var artist = $("#artist"+parts[1]).html();
-	    var album = $("#album"+parts[1]).html();
+	    console.log($("#title"+tag));
+	    var title = $("#title"+tag).html();
+	    var artist = $("#artist"+tag).html();
+	    var album = $("#album"+tag).html();
             console.log(key);
             key = key.replace(new RegExp("\\.|-","g"),"");
             key = key.replace(new RegExp("\\/","g"),"");
@@ -153,6 +153,21 @@ Track Number
 	    $('#nowPlaying').html("<legend>Now Playing</legend>"+title+"<br/>"+artist+"<br/>"+album);
 
         }
+
+	function findSong(fileName) {
+             var i = 0;
+             var index = 0;
+             $('#pluginPlayer source').each(function() {
+                var src = $(this).attr('src');
+                 if (src.indexOf(fileName) != -1)  {
+                    found = true;
+                    index = i;
+                }
+                i++;
+            });
+            return index;
+	}
+
         function stopSong() {
                         var obj = document.getElementById('pluginPlayer');
             console.log(obj);
