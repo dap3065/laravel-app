@@ -130,7 +130,10 @@ Track Number
             }
 	    var parts = key.split("/");
 	    console.log(parts);
-	    var title = $("#title"+parts[1]).html();
+	    var tag = "#title"+parts[1];
+	    console.log(tag);
+	    console.log($(tag));
+	    var title = $(tag).html();
 	    var artist = $("#artist"+parts[1]).html();
 	    var album = $("#album"+parts[1]).html();
             console.log(key);
