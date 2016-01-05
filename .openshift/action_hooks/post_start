@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "start post"
+
+cd /var/lib/openshift/56843b142d5271dd4900010b/app-root/repo
+composer update
+echo "done post"
