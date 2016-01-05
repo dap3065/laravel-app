@@ -43,6 +43,7 @@
 		"post-create-project-cmd": []
 	},
 	"config": {
+		"component-dir": "public",
 		"preferred-install": "dist"
 	}
 }
