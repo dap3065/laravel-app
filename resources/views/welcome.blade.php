@@ -48,7 +48,7 @@
 	<body onload="playSong();">
 		<div class="container">
 			<div class="content">
-				<div class="title">Welcome My Love</div>
+				<div class="title">Welcome Valorie - Miss you babe!</div>
 				<div class="quote">{{ Inspiring::quote() }}</div>				<div >
 @for ($i = 0; $i < count($music); $i++)
   @if($i==0)
