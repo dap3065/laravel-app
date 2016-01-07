@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>I Love Valorie</title>
-		
+
 		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
                 <link href='require.css' rel='stylesheet' type='text/css'>
                 <link href='bootstrap/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
@@ -87,7 +87,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-	</div>			
+	</div>
 				<div class="quote">{{ Inspiring::quote() }}</div>				<div >
 @for ($i = 0; $i < count($music); $i++)
   @if($i==0)
@@ -99,53 +99,53 @@
 </audio>
 </div>
 <div style="padding:10px;margin:10px;">
-<fieldset id="nowPlaying">
-<legend>
-Now Playing
-</legend>
-</fieldset>
+    <fieldset id="nowPlaying">
+        <legend>
+            Now Playing
+        </legend>
+    </fieldset>
 </div>
 <div style="padding:10px;margin:10px;">
-<button  onclick="playSong()">Play</button> 
-<button class="button"  onclick="stopSong();">Stop</button> 
-<button class="button" onclick="nextSong()">Next</button> 
-<button class="button" onclick="previousSong()">Previous</button>
-                        </div>
+    <button  onclick="playSong()">Play</button>
+    <button class="button"  onclick="stopSong();">Stop</button>
+    <button class="button" onclick="nextSong()">Next</button>
+    <button class="button" onclick="previousSong()">Previous</button>
+</div>
 <div style="padding:10px;margin:10px;">
-<div class="col-md-4">
-Title
-</div>
-<div class="col-md-3">
-Artist
-</div>
-<div class="col-md-3">
-Album
-</div>
-<div class="col-md-1">
-Year
-</div>
-<div class="col-md-1">
-Track Number
-</div>
+    <div class="col-md-4">
+        Title
+    </div>
+    <div class="col-md-3">
+        Artist
+    </div>
+    <div class="col-md-3">
+        Album
+    </div>
+    <div class="col-md-1">
+        Year
+    </div>
+    <div class="col-md-1">
+        Track Number
+    </div>
 </div>
 @for ($i = 0; $i < count($music); $i++)
   <div class="col-md-12" style="cursor:pointer;" onclick="playFile('music/{{ $music[$i]["filename"] }}');">
 
-<div class="col-md-4" id="title{{ $i }}">
-{{ $music[$i]["comments"]["title"][0] }}
-</div>
-<div class="col-md-3" id="artist{{ $i }}">
-{{ $music[$i]["comments"]["artist"][0] }}
-</div>
-<div class="col-md-3" id="album{{ $i }}">
-{{ $music[$i]["comments"]["album"][0] }}
-</div>
-<div class="col-md-1">
-{{{ isset($music[$i]["comments"]["year"]) ? $music[$i]["comments"]["year"][0] : '' }}}
-</div>
-<div class="col-md-1">
-{{{ isset($music[$i]["comments"]["track_number"]) ? $music[$i]["comments"]["track_number"][0] : '' }}}
-</div>
+    <div class="col-md-4" id="title{{ $i }}">
+        {{ $music[$i]["comments"]["title"][0] }}
+    </div>
+    <div class="col-md-3" id="artist{{ $i }}">
+        {{ $music[$i]["comments"]["artist"][0] }}
+    </div>
+    <div class="col-md-3" id="album{{ $i }}">
+        {{ $music[$i]["comments"]["album"][0] }}
+    </div>
+    <div class="col-md-1">
+        {{{ isset($music[$i]["comments"]["year"]) ? $music[$i]["comments"]["year"][0] : '' }}}
+    </div>
+    <div class="col-md-1">
+    {{{ isset($music[$i]["comments"]["track_number"]) ? $music[$i]["comments"]["track_number"][0] : '' }}}
+    </div>
 </div>
 @endfor
 			</div>
@@ -154,7 +154,7 @@ Track Number
  var mymusic = [];
  var timer;
 @foreach ($musicArray as $key => $value)
-    mymusic['{!! str_replace(array("-", ".", "&", "(", ")"), "", $key) !!}'] = {{$value}}; 
+    mymusic['{!! str_replace(array("-", ".", "&", "(", ")"), "", $key) !!}'] = {{$value}};
 @endforeach
 
        function playSong() {
