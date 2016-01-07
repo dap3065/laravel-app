@@ -266,6 +266,7 @@
                  music.push($(this).attr('src'));
             });
         }
+
 </script>
 	</body>
 </html>
