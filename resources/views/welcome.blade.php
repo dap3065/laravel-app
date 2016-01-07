@@ -48,7 +48,46 @@
 	<body onload="playSong();">
 		<div class="container">
 			<div class="content">
-				<div class="title">I love you Valorie!</div>
+<div class="row">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <div class="title">Welcome Valorie :) </div>
+    </div>
+
+    <div class="item">
+      <div class="title">Thank you for spending the night!</div>
+    </div>
+
+    <div class="item">
+      <div class="title">I miss you Valorie!!</div>
+    </div>
+
+    <div class="item">
+      <div class="title">I love you Valorie!!!</div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+	</div>			
 				<div class="quote">{{ Inspiring::quote() }}</div>				<div >
 @for ($i = 0; $i < count($music); $i++)
   @if($i==0)
